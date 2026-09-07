@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Details</title>
+</head>
+<body>
+  <div class="wrapper">
+    <img src="" id="im"/>
+  <h1 id="name">app not found</h1>
+  <p id="com">No coming future</p>
+    <button onclick="sharePage()">Share app</button>
+    <button onclick="window.history.back()">Back</button>
+    </div>
+</body>
+</html>
+<style>
+body {
+  background: #081b29;
+  color: #fff;
+  justify-content: center;
+  display: block;
+}
+.wrapper {
+  border: none;
+  margin: 20px;
+  height: 700px;
+  position: relative;
+}
+.wrapper h1 { 
+  color: #0ef;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wrapper #com {
+  font-size: 20px;
+  color: #0ef;
+  top: 200px;
+  left: 5px;
+  position: absolute;
+  padding: 20px 0;
+}
+.wrapper button {
+  border: 2px solid #0ef;
+  top: 350px;
+  left: 80px;
+  width: 150px;
+  height: 40px;
+  position: relative;
+  background: transparent;
+  color: #fff;
+  margin-left: 30px;
+  border-radius: 20px;
+  cursor: none;
+  outline: none;
+  box-shadow: 0 0 20px 2px #0ef;
+  
+}
+.wrapper button:active {
+  opacity: 0.5;
+}
+.wrapper img {
+  position: absolute;
+  left: 210px;
+  top: 70px;
+  object-fit: cointain;
+  width: 100px;
+  box-shadow: 0 0 20px 2px #0ef;
+  border: 3px solid #0ef;
+  height: 90px;
+ 
+}
+  
+  
+  </style>
+<script>
+let apps = {
+  EfutCards: {
+    coming: "No Details found "
+  }
+}
+
+const params = new URLSearchParams(location.search);
+let app = params.get("app");
+document.getElementById("name").innerText = app ||"App not found";
+document.getElementById("com").innerText = "Whats is coming for this app: " + apps[app].coming ||"App not found";
+document.getElementById("im").src = app + ".png";
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: app,
+      text: "Download now this app" +app,
+      url: "https://maxtocantona.github.io/com/?focus="+ app
+    })
+    .then(() => console.log('Shared successfully'))
+    .catch((error) => console.log('Error:', error));
+  } else {
+    alert("You browser not supported Share");
+  }
+}
+
+
+</script>
