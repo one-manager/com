@@ -147,14 +147,14 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     document.querySelector(".prev").onclick = () => {
       if (photosLength > 0) {
         index = (index - 1 + photosLength) % photosLength;
-        overlayImg.src = `${appId}${index}.webp`;
+        overlayImg.src = `images/${appId}${index}.webp`;
       }
     };
 
     document.querySelector(".next").onclick = () => {
       if (photosLength > 0) {
         index = (index + 1) % photosLength;
-        overlayImg.src = `${appId}${index}.webp`;
+        overlayImg.src = `images/${appId}${index}.webp`;
       }
     };
 
