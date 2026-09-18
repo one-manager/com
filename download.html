@@ -75,11 +75,12 @@ arrow_forward
     const appName = app.name;
     const versionName = app.version;
     const appNew = app.new;
+    const shortDes = app.shortDes;
     
       // Si badbaado leh u qor magaca iyo waxa cusub maadaama app-ku jiro
     document.getElementById("name").innerText = appName || "APP NOT FOUND";
     document.getElementById("about").innerText = description;
-    document.getElementById("short-desp").innerText = description.split(" ").slice(0,9).join(" ");
+    document.getElementById("short-desp").innerText = shortDes || description.split(" ").slice(0,9).join(" ");
     document.getElementById("coming").innerText = appNew || "Current version is a first version!";
 document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     document.getElementById("aHelp").href = `help.html?id=${appId}`;
@@ -104,7 +105,7 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
         <img src="images/${iconURL}">
     <div class="name">
         <h2>${appName}</h2>
-    <p class="watermark">ONE MANAGER</p>
+    <p class="watermark">MARU</p>
     <div class=status>
     Status:<p class="stat" style="color: ${isAvailable.color}">${isAvailable.text}</p></div>
     <div class="version">Version: <p>${versionName}</p></div>
