@@ -111,7 +111,7 @@ document.getElementById("aPrivacy").href = `privacypolicy.html?id=${appId}`;
     <div class="version">Version: <p>${versionName}</p></div>
     </div>
         
-        <button ${app.NotFinished ? "disabled" : ""} onclick="location.href='apks/${appFile}'">
+        <button ${app.NotFinished ? "disabled" : ""} onclick="location.href='${appFile}'">
     ${app.NotFinished ? "Coming" : "Downlaod"}
 </button>      
       </div>
